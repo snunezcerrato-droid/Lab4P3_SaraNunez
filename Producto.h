@@ -37,6 +37,7 @@ public:
     string getMarca() const;
     void setMarca(string marca);
 
-    string getSubCategoria(string subCategoria);
+    string getSubCategoria() const;
+    void setSubCategoria(string subCategoria);
 };
 #endif
