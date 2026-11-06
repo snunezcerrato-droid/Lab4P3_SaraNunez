@@ -43,7 +43,7 @@ int main() {
             cout << "Saliendo del programa...\n";
             break;
         default:
-            cout << "Opción fuera de rango. Intente nuevamente.\n";
+            cout << "Opción fuera de rango.\n";
         }
     } while (opcion != 0);
 

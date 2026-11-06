@@ -7,13 +7,14 @@ using namespace std;
 Miniso::Miniso() {}
 Miniso::~Miniso() {}
 
+//informacion del producto agregado
 void Miniso::agregarProductos() {
 	setlocale(LC_ALL, "spanish");
 	string nombre, marca, subCategoria;
 	int id, stock;
 	double precio;
 
-	cout << "\n == Agregar Producto ==\n";
+	cout << "\n == Agregar Producto == \n";
 	cout << "Ingresar el nombre del producto: ";
 	cin >> nombre;
 
@@ -42,7 +43,7 @@ void Miniso::agregarProductos() {
 		cout << "Ingresar la marca del producto [Sanrio/Disney]: ";
 		cin >> marca;
 		if (marca != "Sanrio" && marca != "Disney") {
-			cout << "Marca no reconocida. Intente nuevamente.\n";
+			cout << "Marca no reconocida.\n";
 		}
 	} while (marca != "Sanrio" && marca != "Disney");
 
@@ -64,12 +65,12 @@ void Miniso::listarProductos() {
 	cout << "\n== Inventario de Productos ==\n";
 	for (size_t i = 0; i < listaProductos.size(); ++i) {
 		cout << "-***" << i << "***-\n";
-		cout << "Producto: " << listaProductos[i].getNombre() << "\n";
-		cout << "Precio: " << listaProductos[i].getPrecio() << "\n";
-		cout << "Id: " << listaProductos[i].getId() << "\n";
-		cout << "Stock: " << listaProductos[i].getStock() << "\n";
-		cout << "Marca: " << listaProductos[i].getMarca() << "\n";
-		cout << "Sub Categoría: " << listaProductos[i].getSubCategoria() << "\n";
+		cout << "- Producto: " << listaProductos[i].getNombre() << "\n";
+		cout << "- Precio: " << listaProductos[i].getPrecio() << "\n";
+		cout << "- Id: " << listaProductos[i].getId() << "\n";
+		cout << "- Stock: " << listaProductos[i].getStock() << "\n";
+		cout << "- Marca: " << listaProductos[i].getMarca() << "\n";
+		cout << "- Sub Categoría: " << listaProductos[i].getSubCategoria() << "\n";
 	}
 }
 
@@ -91,6 +92,8 @@ void Miniso::eliminarProductos() {
 	listaProductos.erase(listaProductos.begin() + indice);
 	cout << "El elemento fue borrado con éxito.\n";
 }
+
+//tarjetazos
 
 void Miniso::comprarProductos() {
 	int tarjetazos = 10;
@@ -129,13 +132,33 @@ void Miniso::comprarProductos() {
 		int fila, columna;
 		cout << "Ingresa la fila (0-9): ";
 		while (!(cin >> fila) || fila > 9) {
-			cout << "Fila inválida (0-9).";
+			cout << "Fila inválida (0-9): ";
 			cin.clear();
 			cin.ignore(10000, '\n');
 		}
 
+		cout << "Ingresa la columna (0-9): ";
+		while (!(cin >> columna) || columna < 0 || columna > 9) {
+			cout << "Columna inválida (0-9): ";
+			cin.clear();
+			cin.ignore(10000, '\n');
+		}
 
+		if (tablero[fila][columna] != ' ') {
+			char item = tablero[fila][columna];
+			carrito.push_back(item);
+			tablero[fila][columna] = ' ';
+			tarjetazos--;
+			cout << "¡Exito! Agregaste un producto. Te quedan " << tarjetazos << " tarjetazos.\n";
+
+		}
+		else {
+			tarjetazos--;
+			cout << "Casilla vacía. No se agregó ningun producto. Te quedan " << tarjetazos << " tarjetazos.\n";
+		}
 	}
+	cout << "\n¡Se acabaron los tarjetazos! Tu papá se ha dado cuenta de los cargos a la black card.\n";
 }
+
 
 
