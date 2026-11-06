@@ -93,7 +93,49 @@ void Miniso::eliminarProductos() {
 }
 
 void Miniso::comprarProductos() {
+	int tarjetazos = 10;
+	char tablero[10][10];
+	vector<char> carrito;
 
+	for (int i = 0; i < 10; i++) {
+		for (int j = 0; j < 10; ++j) {
+			tablero[i][j] = ' ';
+		}
+	}
+	srand(time(0));
+	tablero[2][0] = 'L';
+	tablero[3][0] = 'C';
+	tablero[6][4] = 'V';
+	tablero[7][3] = 'C';
+	tablero[3][4] = 'F';
+
+	while (tarjetazos > 0) {
+		cout << "\nTe quedan " << tarjetazos << " tarjetazos.\n";
+		cout << "  0 1 2 3 4 5 6 7 8 9\n";
+		for (int i = 0; i < 10; i++) {
+			cout << i << "|";
+			for (int j = 0; j < 10; j++) {
+				cout << tablero[i][j];
+			}
+			cout << "\n";
+		}
+
+		cout << "Carrito: [ ";
+		for (char c : carrito) {
+			cout << c << " ";
+		}
+		cout << "]\n";
+
+		int fila, columna;
+		cout << "Ingresa la fila (0-9): ";
+		while (!(cin >> fila) || fila > 9) {
+			cout << "Fila inválida (0-9).";
+			cin.clear();
+			cin.ignore(10000, '\n');
+		}
+
+
+	}
 }
 
 
