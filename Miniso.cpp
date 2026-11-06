@@ -1,4 +1,4 @@
-#include "Miniso.h"
+﻿#include "Miniso.h"
 #include <iostream>
 #include <cstdlib>
 #include <ctime>
@@ -61,7 +61,7 @@ void Miniso::listarProductos() {
 		return;
 	}
 
-	cout << "\n--- Inventario de Productos ---\n";
+	cout << "\n== Inventario de Productos ==\n";
 	for (size_t i = 0; i < listaProductos.size(); ++i) {
 		cout << "-***" << i << "***-\n";
 		cout << "Producto: " << listaProductos[i].getNombre() << "\n";
@@ -90,5 +90,10 @@ void Miniso::eliminarProductos() {
 
 	listaProductos.erase(listaProductos.begin() + indice);
 	cout << "El elemento fue borrado con éxito.\n";
+}
+
+void Miniso::comprarProductos() {
 
 }
+
+
