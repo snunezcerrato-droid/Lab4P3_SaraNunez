@@ -18,5 +18,19 @@
     <ClCompile Include="Lab4P3_SaraNunez.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="Producto.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Miniso.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Producto.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Miniso.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>
